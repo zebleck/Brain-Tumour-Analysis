@@ -7,7 +7,7 @@ import os
 import numpy as np
 from collections import Counter
 
-def loadAndPrepareData(root_dir, batch_size=32, n_classes=None):
+def loadAndPrepareData(root_dir, batch_size=32, n_classes=None, augment=True, shuffle=True):
 
     # Define the mean and standard deviation for normalization (same as ImageNet)
     mean = [0.485, 0.456, 0.406]
@@ -17,11 +17,13 @@ def loadAndPrepareData(root_dir, batch_size=32, n_classes=None):
     transform = transforms.Compose([
         transforms.Resize(512),                           # Resize the image to 512x512 pixels
         transforms.CenterCrop(512),                        # Perform a center crop of size 512x512 pixels
-        transforms.RandomRotation(30),                     # Randomly rotate the image by 30 degrees
-        transforms.RandomHorizontalFlip(),                 # Randomly flip the image horizontally
         transforms.ToTensor(),                              # Convert the image to a tensor
         transforms.Normalize(mean=mean, std=std)  # Normalize the image using the specified mean and standard deviation
     ])
+
+    if augment:
+        transform.transforms.insert(2, transforms.RandomHorizontalFlip()),
+        transform.transforms.insert(2, transforms.RandomRotation(30))
 
     # Create an instance of the ImageFolderDataset with the specified root directory and transformation
     dataset = ImageFolderDataset(root_dir=root_dir, transform=transform, n_classes=n_classes)
@@ -48,8 +50,12 @@ def loadAndPrepareData(root_dir, batch_size=32, n_classes=None):
     sampler = WeightedRandomSampler(weights, len(weights))
 
     # Create the dataloaders
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, sampler=sampler)
-    val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=True)
+    if shuffle == True:
+        train_loader = DataLoader(train_dataset, batch_size=batch_size, sampler=sampler)
+        val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=True)
+    else:
+        train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=False)
+        val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
     # Create dataloaders for training and validation
     # train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
@@ -67,6 +73,7 @@ class ImageFolderDataset(Dataset):
         self.labels = []
         self.class_samples = Counter()
         self.n_classes = n_classes
+        self.tumor_type_dict = {}
 
         # Iterate over each class directory in the root directory
         for i, class_dir in enumerate(os.listdir(root_dir)):
@@ -75,6 +82,8 @@ class ImageFolderDataset(Dataset):
             # Skip non-directory items
             if not os.path.isdir(class_path):
                 continue
+
+            self.tumor_type_dict[i] = class_dir
 
             # Iterate over each image file in the class directory
             for image_file in os.listdir(class_path):
@@ -87,7 +96,7 @@ class ImageFolderDataset(Dataset):
                 # Add the image path and corresponding label to the lists
                 self.image_paths.append(image_path)
                 self.labels.append(i)
-
+                
                 self.class_samples[i] += 1
 
         self.classes = os.listdir(root_dir)
