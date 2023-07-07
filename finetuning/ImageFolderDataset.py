@@ -17,7 +17,7 @@ def loadAndPrepareData(root_dir, batch_size=32, n_classes=None):
     transform = transforms.Compose([
         transforms.Resize(512),                           # Resize the image to 512x512 pixels
         transforms.CenterCrop(512),                        # Perform a center crop of size 512x512 pixels
-        transforms.RandomRotation(90),                     # Randomly rotate the image by 30 degrees
+        transforms.RandomRotation(30),                     # Randomly rotate the image by 30 degrees
         transforms.RandomHorizontalFlip(),                 # Randomly flip the image horizontally
         transforms.ToTensor(),                              # Convert the image to a tensor
         transforms.Normalize(mean=mean, std=std)  # Normalize the image using the specified mean and standard deviation
