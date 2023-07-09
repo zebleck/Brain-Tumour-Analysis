@@ -27,7 +27,15 @@ Here's a brief overview of the important files/folders:
 
 `Data analysis.ipynb`: This Jupyter notebook is used for performing an exploratory data analysis on the preprocessed data, and training a convolutional neural network to classify tumor types.
 
+`VGG16 Training.ipynb`: This notebook trains a VGG16 model on our dataset, evaluates its performance, and uses Grad-CAM for interpretability.
+
+`flask_server.py`: A Python script that sets up a Flask server, creating an API for the VGG16 model. Users can submit images for classification.
+
+`send_img.py`: A Python script for testing the API by sending test.png to it and saving the result in the /results directory.
+
 `processed/`: This directory contains the processed histopathological data.
+
+`finetuning/`: This directory contains helper classes used for the VGG16 finetuning on our data.
 
 ## Download data
 
@@ -37,6 +45,4 @@ To get preprocessed data at various sizes (256x256, 512x512, 1024x1024, 2048x204
 
 # Download model
 
-The VGG-16 model pretrained on ImageNet and then trained on all tumour data can be found [here](https://1drv.ms/u/s!Anworwr0CwTdg7JR4opsZx2pzSoL9w?e=IPESMe).
-
-The VGG-16 model not pretrained and trained on all tumour data can be found [here](https://1drv.ms/u/s!Anworwr0CwTdg7JQkkTNU1FzEuLq-w?e=dmUggs).
+The VGG-16 models, one pretrained on ImageNet and one trained from scratch can be found [here](https://1drv.ms/f/s!Anworwr0CwTdg7JPAVt2zCHYm_mV9w?e=ejehBW).
