@@ -28,10 +28,6 @@ def load_model():# Imagenet pretrained vgg16 model
 
     model = timm.create_model('vgg16', pretrained=False)
 
-    # load the pretrained model weights
-    state_dict = torch.load(vgg16_imagenet_path, map_location=torch.device('cpu'))#timm.create_model('vgg19', pretrained=True)
-    model.load_state_dict(state_dict)
-
     # Output dimension, which is equal to the number of different tumour classes
     output_dim = 127
 
