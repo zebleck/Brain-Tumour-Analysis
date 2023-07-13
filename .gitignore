@@ -5,3 +5,4 @@ vgg16.tv_in1k
 vgg19.tv_in1k
 finetuning/runs
 finetuning/models
+archive

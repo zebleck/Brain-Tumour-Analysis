@@ -6,12 +6,9 @@ import numpy as np
 import requests
 import json
 
-url = 'http://localhost:5000/process_image'
-image_path = 'test.png'
+url = 'http://localhost:5000/process_image_name/test.png'
 
-with open(image_path, 'rb') as file:
-    files = {'image': file}
-    response = requests.post(url, files=files)
+response = requests.get(url)
 
 if response.status_code == 200:
 	if not os.path.exists('results'):
@@ -27,6 +24,11 @@ if response.status_code == 200:
 	batch_visualizations_bytes = base64.b64decode(preds['batch_visualizations'])
 	batch_visualizations_img = Image.open(io.BytesIO(batch_visualizations_bytes))
 	batch_visualizations_img.save('results/batch_visualizations.png')
+
+	# LIME
+	lime_bytes = base64.b64decode(preds['lime'])
+	lime_img = Image.open(io.BytesIO(lime_bytes))
+	lime_img.save('results/lime.png')
 
 	# Convert string back to float and save scores
 	scores = np.fromstring(preds['scores'][1:-1], sep=' ')
