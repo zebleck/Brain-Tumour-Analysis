@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://5fs5opwqt0mu"]
+
+[ext_resource type="Script" path="res://Scripts/CustomBaseScripts/control_custom.gd" id="1_6hymn"]
+[ext_resource type="Theme" uid="uid://co5i3a5rw55vl" path="res://Themes/background_theme.tres" id="2_emhst"]
+
+[node name="BackgroundControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6hymn")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_emhst")

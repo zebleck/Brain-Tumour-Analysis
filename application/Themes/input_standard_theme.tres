@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://i80kq6llb0v7"]
+
+[ext_resource type="FontFile" uid="uid://bmjn52ctjjiaw" path="res://Fonts/Gugi/Gugi-Regular.ttf" id="1_ehe43"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecm1b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jb7c8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jkunn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_63vxk"]
+bg_color = Color(0, 0.509804, 0.682353, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/font_sizes/font_size = 25
+Label/fonts/font = ExtResource("1_ehe43")
+LineEdit/colors/font_color = Color(1, 1, 1, 1)
+LineEdit/colors/font_placeholder_color = Color(0.87451, 0.87451, 0.87451, 0.737255)
+LineEdit/font_sizes/font_size = 25
+LineEdit/fonts/font = ExtResource("1_ehe43")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_ecm1b")
+LineEdit/styles/normal = SubResource("StyleBoxEmpty_jb7c8")
+LineEdit/styles/read_only = SubResource("StyleBoxEmpty_jkunn")
+Panel/styles/panel = SubResource("StyleBoxFlat_63vxk")

@@ -1,0 +1,163 @@
+[gd_scene load_steps=7 format=3 uid="uid://phf4oq2sl2x0"]
+
+[ext_resource type="Script" path="res://Scripts/init_menu.gd" id="1_pr6w1"]
+[ext_resource type="Theme" uid="uid://bx16tdyaxe3d8" path="res://Themes/viewport_theme.tres" id="2_i7qn8"]
+[ext_resource type="PackedScene" uid="uid://esc6ox0eywub" path="res://Scenes/Modules/scroll_list_standard.tscn" id="3_lnc2x"]
+[ext_resource type="Theme" uid="uid://bu250n7etigis" path="res://Themes/start_menu_theme.tres" id="4_omxlg"]
+[ext_resource type="Theme" uid="uid://dvur0qkcoelqq" path="res://Themes/cancel_exit_button.tres" id="5_wteam"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d7jvp"]
+bg_color = Color(0.956863, 0.956863, 0.956863, 0.360784)
+
+[node name="initMenuControl" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pr6w1")
+
+[node name="CoverPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_d7jvp")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_i7qn8")
+
+[node name="StartContainer" type="VBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 65.0
+offset_right = 20.0
+offset_bottom = 105.0
+grow_horizontal = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="ImageNamesList" parent="Panel/StartContainer/ScrollContainer" instance=ExtResource("3_lnc2x")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="startButton" type="Button" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("4_omxlg")
+text = "start"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="refreshButton" type="Button" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("4_omxlg")
+text = "refresh"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="cancelButton" type="Button" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("5_wteam")
+text = "cancel
+"
+
+[node name="ArchiveContainer" type="VBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 65.0
+offset_right = 20.0
+offset_bottom = 105.0
+grow_horizontal = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/ArchiveContainer"]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="ImageNamesListArchive" parent="Panel/ArchiveContainer/ScrollContainer" instance=ExtResource("3_lnc2x")]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/ArchiveContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="loadArchiveButton" type="Button" parent="Panel/ArchiveContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("4_omxlg")
+text = "load"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/ArchiveContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="refreshArchiveButton" type="Button" parent="Panel/ArchiveContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("4_omxlg")
+text = "refresh"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/ArchiveContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="cancelArchiveButton" type="Button" parent="Panel/ArchiveContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("5_wteam")
+text = "cancel
+"

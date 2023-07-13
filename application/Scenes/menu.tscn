@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1m71akhkwtgl"]
+
+[ext_resource type="Script" path="res://Scripts/menu.gd" id="1_nu0og"]
+[ext_resource type="Theme" uid="uid://bu250n7etigis" path="res://Themes/start_menu_theme.tres" id="2_vayc7"]
+[ext_resource type="Theme" uid="uid://dvur0qkcoelqq" path="res://Themes/cancel_exit_button.tres" id="3_puwe8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7ted"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
+shadow_size = 3
+shadow_offset = Vector2(0, 2)
+anti_aliasing_size = 2.0
+
+[node name="menuControl" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_nu0og")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i7ted")
+
+[node name="HBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_top = -72.0
+offset_right = 75.0
+offset_bottom = 72.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+
+[node name="newButton" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("2_vayc7")
+text = "new"
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(15, 10)
+layout_mode = 2
+
+[node name="archiveButton" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("2_vayc7")
+text = "archive"
+
+[node name="MarginContainer4" type="MarginContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(25, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="exitButton" type="Button" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("3_puwe8")
+text = "quit
+"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/HBoxContainer"]
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
