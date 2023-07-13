@@ -1,0 +1,116 @@
+[gd_scene load_steps=6 format=3 uid="uid://cikgt5lkm5bwd"]
+
+[ext_resource type="Script" path="res://Scripts/result.gd" id="1_oq15q"]
+[ext_resource type="Theme" uid="uid://cvxd0sgk1bap8" path="res://Themes/start_menu_theme_2.tres" id="2_ghff1"]
+[ext_resource type="Texture2D" uid="uid://b1sfi66ei7nu8" path="res://Sprites/jnnp-2004-June-75-suppl 2-ii2-F6.large.jpg" id="3_d2mr0"]
+[ext_resource type="Theme" uid="uid://bu250n7etigis" path="res://Themes/start_menu_theme.tres" id="4_mb2jq"]
+[ext_resource type="FontFile" uid="uid://bmjn52ctjjiaw" path="res://Fonts/Gugi/Gugi-Regular.ttf" id="5_o171f"]
+
+[node name="ResultControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oq15q")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(922, 720)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -461.0
+offset_top = -360.0
+offset_right = 461.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_d2mr0")
+
+[node name="StartAgain" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -30.0
+offset_right = 100.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_ghff1")
+text = "Start again"
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(300, 400)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_mb2jq")
+
+[node name="CancerContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.5
+offset_top = 40.0
+offset_right = 161.5
+offset_bottom = 504.0
+grow_horizontal = 2
+
+[node name="Detected!" type="Label" parent="Panel/CancerContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_o171f")
+theme_override_font_sizes/font_size = 24
+text = "Cancer detected!
+"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/CancerContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="CancerInfoText" type="Label" parent="Panel/CancerContainer"]
+custom_minimum_size = Vector2(250, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_o171f")
+theme_override_font_sizes/font_size = 24
+text = "My analysis has shown that the histological picture shows signs of cancer.
+
+According to my findings, I classify the tumor as...
+
+more info etc."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/CancerContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="ConfirmButton" type="Button" parent="Panel/CancerContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("4_mb2jq")
+text = "CONFIRM"

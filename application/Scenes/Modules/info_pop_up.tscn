@@ -1,0 +1,148 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7fr0hv0ffjb8"]
+
+[ext_resource type="Script" path="res://Scenes/Modules/info_pop_up.gd" id="1_ehp1u"]
+[ext_resource type="Theme" uid="uid://d28p0ovyf2ub4" path="res://Themes/WhitePanelTheme.tres" id="2_1bdnw"]
+[ext_resource type="FontFile" uid="uid://bmjn52ctjjiaw" path="res://Fonts/Gugi/Gugi-Regular.ttf" id="3_6xoyj"]
+[ext_resource type="Theme" uid="uid://bu250n7etigis" path="res://Themes/start_menu_theme.tres" id="4_2pfac"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moijn"]
+bg_color = Color(0.956863, 0.956863, 0.956863, 0.360784)
+
+[node name="InfoPopUpControl" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehp1u")
+
+[node name="CoverPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_moijn")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(400, 500)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_1bdnw")
+
+[node name="BasicContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/BasicContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Panel/BasicContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_6xoyj")
+theme_override_font_sizes/font_size = 25
+text = "INFORMATION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Panel/BasicContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+
+[node name="OriginalInfoText" type="RichTextLabel" parent="Panel/BasicContainer/Control"]
+visible = false
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_right = 175.0
+offset_bottom = -82.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_6xoyj")
+theme_override_font_sizes/normal_font_size = 20
+text = "Original Info Text blbalbl blab blablbal"
+
+[node name="VisualizationInfoText" type="RichTextLabel" parent="Panel/BasicContainer/Control"]
+visible = false
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_6xoyj")
+theme_override_font_sizes/normal_font_size = 20
+text = "Visualization Info Text blbalbl blab blablbal"
+
+[node name="BatchInfoText" type="RichTextLabel" parent="Panel/BasicContainer/Control"]
+visible = false
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_6xoyj")
+theme_override_font_sizes/normal_font_size = 20
+text = "Batch Info Text blbalbl blab blablbal"
+
+[node name="LimeInfoText" type="RichTextLabel" parent="Panel/BasicContainer/Control"]
+visible = false
+custom_minimum_size = Vector2(350, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -175.0
+offset_right = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("3_6xoyj")
+theme_override_font_sizes/normal_font_size = 20
+text = "Lime Info Text blbalbl blab blablbal"
+
+[node name="closeButton" type="Button" parent="Panel/BasicContainer"]
+custom_minimum_size = Vector2(150, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("4_2pfac")
+text = "close
+"

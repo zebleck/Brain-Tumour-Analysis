@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://ben12ysetc0ly"]
+
+[ext_resource type="Script" path="res://AppMain.gd" id="1_kh2ko"]
+[ext_resource type="PackedScene" uid="uid://5fs5opwqt0mu" path="res://Scenes/background.tscn" id="2_ctplj"]
+[ext_resource type="Texture2D" uid="uid://d20uye5rjjscq" path="res://Sprites/FlashScreen/bioquant-at-heidelberg-university-logo-1677581629758.jpg" id="3_0us2v"]
+[ext_resource type="PackedScene" uid="uid://b1m71akhkwtgl" path="res://Scenes/menu.tscn" id="3_xswvv"]
+[ext_resource type="PackedScene" uid="uid://csqfeaq75n0qx" path="res://Scenes/viewport.tscn" id="4_3qsdj"]
+[ext_resource type="PackedScene" uid="uid://phf4oq2sl2x0" path="res://Scenes/init_menu.tscn" id="4_5kwlj"]
+[ext_resource type="Script" path="res://Scripts/HTTPResult.gd" id="5_uuh6c"]
+[ext_resource type="Script" path="res://Scripts/HTTPImageNames.gd" id="6_kuw1r"]
+[ext_resource type="PackedScene" uid="uid://hex8qgen1op7" path="res://Scenes/loading.tscn" id="7_ihfef"]
+[ext_resource type="PackedScene" uid="uid://boqx2hp5bl1kt" path="res://Scenes/Modules/warning.tscn" id="7_ydxn2"]
+
+[node name="AppMain" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kh2ko")
+
+[node name="BackgroundControl" parent="." instance=ExtResource("2_ctplj")]
+layout_mode = 1
+
+[node name="ResultImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_0us2v")
+stretch_mode = 3
+
+[node name="Viewport" parent="." instance=ExtResource("4_3qsdj")]
+layout_mode = 1
+
+[node name="menu" parent="." instance=ExtResource("3_xswvv")]
+layout_mode = 1
+anchors_preset = 2
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 0.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -220.0
+offset_right = 249.0
+offset_bottom = -20.0
+grow_horizontal = 1
+grow_vertical = 0
+
+[node name="initMenu" parent="." instance=ExtResource("4_5kwlj")]
+layout_mode = 1
+
+[node name="loading" parent="." instance=ExtResource("7_ihfef")]
+visible = false
+layout_mode = 1
+
+[node name="warning" parent="." instance=ExtResource("7_ydxn2")]
+layout_mode = 1
+
+[node name="HTTP" type="Node" parent="."]
+
+[node name="HTTPResult" type="HTTPRequest" parent="HTTP"]
+use_threads = true
+script = ExtResource("5_uuh6c")
+
+[node name="HTTPImageNames" type="HTTPRequest" parent="HTTP"]
+use_threads = true
+script = ExtResource("6_kuw1r")

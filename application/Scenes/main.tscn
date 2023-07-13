@@ -1,0 +1,70 @@
+[gd_scene load_steps=11 format=3 uid="uid://bgujpflw34ctc"]
+
+[ext_resource type="Script" path="res://Scripts/main.gd" id="1_4th1u"]
+[ext_resource type="PackedScene" uid="uid://5fs5opwqt0mu" path="res://Scenes/background.tscn" id="1_a57ga"]
+[ext_resource type="PackedScene" uid="uid://dr1byoga5oaof" path="res://Scenes/start_menu.tscn" id="2_lvtig"]
+[ext_resource type="PackedScene" uid="uid://hex8qgen1op7" path="res://Scenes/loading.tscn" id="4_6oqwj"]
+[ext_resource type="PackedScene" uid="uid://cikgt5lkm5bwd" path="res://Scenes/result.tscn" id="5_uul1j"]
+[ext_resource type="Script" path="res://Scripts/HTTPResult.gd" id="6_ae087"]
+[ext_resource type="Texture2D" uid="uid://d20uye5rjjscq" path="res://Sprites/FlashScreen/bioquant-at-heidelberg-university-logo-1677581629758.jpg" id="7_4rp3a"]
+[ext_resource type="Script" path="res://Scripts/HTTPImageNames.gd" id="7_nw3hx"]
+[ext_resource type="PackedScene" uid="uid://esc6ox0eywub" path="res://Scenes/Modules/scroll_list_standard.tscn" id="9_oj3ou"]
+[ext_resource type="PackedScene" uid="uid://phf4oq2sl2x0" path="res://Scenes/init_menu.tscn" id="10_o5rkf"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4th1u")
+
+[node name="BackgroundControl" parent="." instance=ExtResource("1_a57ga")]
+layout_mode = 1
+
+[node name="StartMenu" parent="." instance=ExtResource("2_lvtig")]
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+
+[node name="Loading" parent="." instance=ExtResource("4_6oqwj")]
+visible = false
+layout_mode = 1
+
+[node name="Result" parent="." instance=ExtResource("5_uul1j")]
+visible = false
+layout_mode = 1
+
+[node name="HTTP" type="Node" parent="."]
+
+[node name="HTTPResult" type="HTTPRequest" parent="HTTP"]
+use_threads = true
+script = ExtResource("6_ae087")
+
+[node name="HTTPImageNames" type="HTTPRequest" parent="HTTP"]
+use_threads = true
+script = ExtResource("7_nw3hx")
+
+[node name="ResultImage" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_4rp3a")
+stretch_mode = 3
+
+[node name="ImageNamesList" parent="." instance=ExtResource("9_oj3ou")]
+layout_mode = 1
+offset_left = -617.0
+offset_top = -190.0
+offset_right = -317.0
+offset_bottom = 110.0
+
+[node name="initMenu" parent="." instance=ExtResource("10_o5rkf")]
+layout_mode = 1

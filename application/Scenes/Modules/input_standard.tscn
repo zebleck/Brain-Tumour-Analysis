@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://dyl26vkhg818q"]
+
+[ext_resource type="Script" path="res://Scripts/input_standard.gd" id="1_651m6"]
+[ext_resource type="Theme" uid="uid://i80kq6llb0v7" path="res://Themes/input_standard_theme.tres" id="2_euf0l"]
+[ext_resource type="FontFile" uid="uid://bmjn52ctjjiaw" path="res://Fonts/Gugi/Gugi-Regular.ttf" id="2_kgxhq"]
+
+[node name="InputStandardControl" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_651m6")
+
+[node name="InputContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Headline" type="Label" parent="InputContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_euf0l")
+theme_override_fonts/font = ExtResource("2_kgxhq")
+text = "Headline"
+
+[node name="Background" type="Panel" parent="InputContainer"]
+custom_minimum_size = Vector2(460, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_euf0l")
+
+[node name="LineEdit" type="LineEdit" parent="InputContainer/Background"]
+custom_minimum_size = Vector2(420, 55)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -210.0
+offset_top = -27.5
+offset_right = 210.0
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_euf0l")
+placeholder_text = "Insert Text"
