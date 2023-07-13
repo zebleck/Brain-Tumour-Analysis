@@ -196,7 +196,7 @@ def get_archive_with_path(folder):
         original = Image.open("archive/" + folder + "/original.png")
         visualizations = Image.open("archive/" + folder + "/visualization.png")
         batch = Image.open("archive/" + folder + "/batch_visualizations.png")
-        # lime = Image.open("archive/" + path + "/lime_visualizations.png")
+        lime = Image.open("archive/" + folder + "/lime_visualizations.png")
 
     except Exception as e:
         print(e)
@@ -237,10 +237,9 @@ def get_archive_with_path(folder):
         'predictions': preds,
         'visualization': visualizations_image_stream,
         'batch_visualizations': batch_image_stream,
-        'lime_visualization': "Default",
+        'lime_visualization': lime_stream,
         'scores': str(scores),
         'scores_road': str(scores_road),
-        'lime': lime_stream
     }
 
     return response
@@ -274,7 +273,7 @@ def process_image_with_path(file_name):
     print('GradCAM time: {:.2f} seconds', time.time() - start_time)
 
     start_time = time.time()
-    currentState_server = "lime"
+    currentState_server = "convert_lime"
     lime_img = lime(image)
     print('LIME time: {:.2f} seconds', time.time() - start_time)
 
@@ -318,10 +317,9 @@ def process_image_with_path(file_name):
         'predictions': preds,
         'visualization': visualization_stream,
         'batch_visualizations': batch_visualization_stream,
-        'lime_visualization': "Default",
+        'lime_visualization': lime_stream,
         'scores': str(scores),
         'scores_road': str(scores_road),
-        'lime': lime_stream
     }
 
     create_archive(response, file_name)
@@ -409,9 +407,9 @@ def create_archive(preds, file_name):
 
     currentState_server = "archive_lime"
     # Decode and save lime_visualizations
-    # lime_visualizations_bytes = base64.b64decode(preds['lime_visualization'])
-    # lime_visualizations_img = Image.open(io.BytesIO(lime_visualizations_bytes))
-    # lime_visualizations_img.save("archive/" + folder + "/lime_visualizations.png")
+    lime_visualizations_bytes = base64.b64decode(preds['lime_visualization'])
+    lime_visualizations_img = Image.open(io.BytesIO(lime_visualizations_bytes))
+    lime_visualizations_img.save("archive/" + folder + "/lime_visualizations.png")
 
     currentState_server = "archive_scores"
     # Convert string back to float and save scores
