@@ -1,6 +1,6 @@
 # Brain Tumour Classification Project
 
-This project aims to classify brain tumour types based on histopathological data. We utilize the "Digital Brain Tumour Atlas" dataset, which contains information about a variety of tumour types. For now, the project includes preprocessing the data, performing exploratory data analysis, and implementing a convolutional neural network for tumour type classification.
+This project aims to classify brain tumour types based on histopathological data. We utilize the [Digital Brain Tumour Atlas](https://www.nature.com/articles/s41597-022-01157-0) dataset, which contains information about a variety of tumour types. For now, the project includes preprocessing the data, performing exploratory data analysis, and implementing a convolutional neural network for tumour type classification.
 
 ## Installation
 
