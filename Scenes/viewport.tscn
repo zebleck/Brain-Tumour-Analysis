@@ -1,0 +1,328 @@
+[gd_scene load_steps=12 format=3 uid="uid://csqfeaq75n0qx"]
+
+[ext_resource type="Script" path="res://Scripts/viewport.gd" id="1_j2m0f"]
+[ext_resource type="Texture2D" uid="uid://d20uye5rjjscq" path="res://Sprites/FlashScreen/bioquant-at-heidelberg-university-logo-1677581629758.jpg" id="2_j7wdm"]
+[ext_resource type="FontFile" uid="uid://bmjn52ctjjiaw" path="res://Fonts/Gugi/Gugi-Regular.ttf" id="3_gyebo"]
+[ext_resource type="Theme" uid="uid://bk42ioloxpvsx" path="res://Themes/new_loading.tres" id="3_pydvn"]
+[ext_resource type="Theme" uid="uid://7a4pco21mtl5" path="res://Themes/slider_theme.tres" id="3_yv3vf"]
+[ext_resource type="PackedScene" uid="uid://bq2023isksiss" path="res://Scenes/Modules/custom_item_list.tscn" id="4_2uump"]
+[ext_resource type="Theme" uid="uid://bx16tdyaxe3d8" path="res://Themes/viewport_theme.tres" id="4_s5c2d"]
+[ext_resource type="PackedScene" uid="uid://b7fr0hv0ffjb8" path="res://Scenes/Modules/info_pop_up.tscn" id="7_g5haj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brskg"]
+bg_color = Color(0.584314, 0.592157, 0.576471, 1)
+border_width_right = 2
+border_color = Color(0, 0.760784, 0.85098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jiqx2"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 0.337255, 0.270588, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxw63"]
+border_width_left = 2
+border_color = Color(0, 0.760784, 0.85098, 1)
+
+[node name="ViewportControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j2m0f")
+
+[node name="Panel2" type="Panel" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_brskg")
+
+[node name="InformationContainer" type="VBoxContainer" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 8.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/InformationContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2/InformationContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="meta" type="Label" parent="Panel2/InformationContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gyebo")
+theme_override_font_sizes/font_size = 20
+text = "Meta Info"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel2/InformationContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Panel2/InformationContainer/VBoxContainer"]
+custom_minimum_size = Vector2(210, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_jiqx2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel2/InformationContainer/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="prediction" type="Label" parent="Panel2/InformationContainer/VBoxContainer/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_gyebo")
+theme_override_font_sizes/font_size = 20
+text = "prediction"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="predictionValue" type="ProgressBar" parent="Panel2/InformationContainer/VBoxContainer/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_pydvn")
+max_value = 1.0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel2/InformationContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="score" type="Label" parent="Panel2/InformationContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gyebo")
+theme_override_font_sizes/font_size = 20
+text = "score"
+vertical_alignment = 1
+
+[node name="score_value" type="ProgressBar" parent="Panel2/InformationContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_pydvn")
+step = 0.5
+
+[node name="score_road" type="Label" parent="Panel2/InformationContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gyebo")
+theme_override_font_sizes/font_size = 20
+text = "score_road"
+vertical_alignment = 1
+
+[node name="score_road_value" type="ProgressBar" parent="Panel2/InformationContainer/VBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("3_pydvn")
+max_value = 20.0
+step = 0.5
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel2/InformationContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="."]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxw63")
+
+[node name="PredictionList" parent="Panel3" instance=ExtResource("4_2uump")]
+layout_mode = 1
+size_flags_horizontal = 4
+
+[node name="ImageSelectionContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -80.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="originalButton" type="Button" parent="ImageSelectionContainer"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("4_s5c2d")
+text = "original"
+
+[node name="MarginContainer2" type="MarginContainer" parent="ImageSelectionContainer"]
+custom_minimum_size = Vector2(10, 25)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="visualizationButton" type="Button" parent="ImageSelectionContainer"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("4_s5c2d")
+text = "visualization"
+
+[node name="MarginContainer4" type="MarginContainer" parent="ImageSelectionContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="batchButton" type="Button" parent="ImageSelectionContainer"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("4_s5c2d")
+text = "batch"
+
+[node name="MarginContainer5" type="MarginContainer" parent="ImageSelectionContainer"]
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="limeButton" type="Button" parent="ImageSelectionContainer"]
+custom_minimum_size = Vector2(180, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("4_s5c2d")
+text = "lime"
+
+[node name="ImageSelectionFeedbackContainer2" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -83.0
+offset_bottom = -58.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="MarginContainer3" type="MarginContainer" parent="ImageSelectionFeedbackContainer2"]
+custom_minimum_size = Vector2(40, 25)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer4" type="MarginContainer" parent="ImageSelectionFeedbackContainer2"]
+custom_minimum_size = Vector2(40, 25)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="MarginContainer5" type="MarginContainer" parent="ImageSelectionFeedbackContainer2"]
+custom_minimum_size = Vector2(40, 25)
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="OriginalImage" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j7wdm")
+stretch_mode = 3
+
+[node name="ResultImage" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -100.0
+offset_right = 100.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j7wdm")
+stretch_mode = 3
+
+[node name="alphaSlider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -350.0
+offset_top = -118.0
+offset_right = 350.0
+offset_bottom = -102.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme = ExtResource("3_yv3vf")
+max_value = 1.0
+step = 0.01
+value = 1.0
+tick_count = 20
+ticks_on_borders = true
+
+[node name="InfoButton" type="Button" parent="."]
+custom_minimum_size = Vector2(65, 35)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -360.0
+offset_top = -176.0
+offset_right = -300.0
+offset_bottom = -146.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme = ExtResource("4_s5c2d")
+text = "INFO"
+
+[node name="InfoBox" parent="." instance=ExtResource("7_g5haj")]
+layout_mode = 1

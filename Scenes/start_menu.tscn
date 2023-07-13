@@ -1,0 +1,233 @@
+[gd_scene load_steps=7 format=3 uid="uid://dr1byoga5oaof"]
+
+[ext_resource type="Script" path="res://Scripts/start_menu.gd" id="1_hhxkm"]
+[ext_resource type="Theme" uid="uid://bu250n7etigis" path="res://Themes/start_menu_theme.tres" id="2_slfxq"]
+[ext_resource type="FontFile" uid="uid://bmjn52ctjjiaw" path="res://Fonts/Gugi/Gugi-Regular.ttf" id="3_ccndo"]
+[ext_resource type="Theme" uid="uid://cvxd0sgk1bap8" path="res://Themes/start_menu_theme_2.tres" id="4_1sw8w"]
+[ext_resource type="PackedScene" uid="uid://dyl26vkhg818q" path="res://Scenes/Modules/input_standard.tscn" id="4_hihjn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r0n3l"]
+bg_color = Color(0.886275, 0.886275, 0.886275, 0.427451)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0.639216, 0.737255, 1)
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+corner_detail = 20
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_hhxkm")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(500, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_slfxq")
+
+[node name="WelcomeContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.5
+offset_top = 65.0
+offset_right = 138.5
+offset_bottom = 347.0
+grow_horizontal = 2
+
+[node name="WelcomeNameText" type="Label" parent="Panel/WelcomeContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ccndo")
+theme_override_font_sizes/font_size = 24
+text = "Hello, my name is Eve! 
+"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/WelcomeContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="WelcomeInfoText" type="Label" parent="Panel/WelcomeContainer"]
+custom_minimum_size = Vector2(200, 150)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ccndo")
+theme_override_font_sizes/font_size = 24
+text = "I am an AI for brain tumor classification and will help you detect and classify a brain tumor based on histological images."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/WelcomeContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="Panel/WelcomeContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("2_slfxq")
+text = "START"
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/WelcomeContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="PathInput" parent="Panel/WelcomeContainer" instance=ExtResource("4_hihjn")]
+layout_mode = 2
+
+[node name="SelectionContainer" type="VBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 65.0
+offset_right = 20.0
+offset_bottom = 105.0
+grow_horizontal = 2
+
+[node name="SelectionInfoText" type="Label" parent="Panel/SelectionContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ccndo")
+theme_override_font_sizes/font_size = 24
+text = "In order for me to help you, I need a histlogical image.
+
+Please select one below.
+
+You can do this easily by clicking on the selection button."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/SelectionContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="SelectButton" type="Button" parent="Panel/SelectionContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("2_slfxq")
+text = "SELECT IMAGE"
+
+[node name="StartContainer" type="VBoxContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 65.0
+offset_right = 20.0
+offset_bottom = 105.0
+grow_horizontal = 2
+
+[node name="ClassificationInfoText" type="Label" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ccndo")
+theme_override_font_sizes/font_size = 24
+text = "Thank you!
+
+Should I start with the analysis and evaluation of the selected histological image?"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="SelectionText" type="Label" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ccndo")
+theme_override_font_sizes/font_size = 12
+text = "Selection:"
+autowrap_mode = 3
+
+[node name="Panel" type="Panel" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r0n3l")
+
+[node name="FileName" type="Label" parent="Panel/StartContainer/Panel"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -28.0
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ccndo")
+theme_override_font_sizes/font_size = 18
+text = "img_histological_brain.xyz"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="ClassificationButton" type="Button" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("2_slfxq")
+text = "start"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="SelectOtherButton" type="Button" parent="Panel/StartContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme = ExtResource("4_1sw8w")
+text = "select other"
