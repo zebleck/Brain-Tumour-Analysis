@@ -18,6 +18,10 @@ Activate using
 conda activate brain-tumour-classification
 ```
 
+### Installation issues
+
+If you have issues installing the environment, try installing the failed packages manually using pip.
+
 ## Project Structure
 Here's a brief overview of the important files/folders:
 
