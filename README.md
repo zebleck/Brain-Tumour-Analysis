@@ -57,6 +57,6 @@ To download and process the data, you need to get an authorization token. To get
 
 To get preprocessed data at various sizes (256x256, 512x512, 1024x1024, 2048x2048), visit: https://1drv.ms/f/s!Anworwr0CwTdgeZTf9tN6CZCkzE39Q?e=S5YkaE
 
-# Download model
+## Download model
 
 The VGG-16 models, one pretrained on ImageNet and one trained from scratch can be found [here](https://1drv.ms/f/s!Anworwr0CwTdg7JPAVt2zCHYm_mV9w?e=ejehBW).
