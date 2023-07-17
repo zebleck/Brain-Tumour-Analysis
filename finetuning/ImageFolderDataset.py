@@ -23,7 +23,7 @@ def loadAndPrepareData(root_dir, batch_size=32, n_classes=None, augment=True, sh
 
     if augment:
         transform.transforms.insert(2, transforms.RandomHorizontalFlip()),
-        transform.transforms.insert(2, transforms.RandomRotation(30))
+        transform.transforms.insert(2, transforms.RandomRotation(90))
 
     # Create an instance of the ImageFolderDataset with the specified root directory and transformation
     dataset = ImageFolderDataset(root_dir=root_dir, transform=transform, n_classes=n_classes)
