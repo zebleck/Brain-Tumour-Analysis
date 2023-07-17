@@ -49,7 +49,7 @@ Here's a brief overview of the important files/folders:
 
 ## Wiki
 
-For more information, please visit the [wiki](https://github.com/zebleck/Brain-Tumour-Analysis/wiki)!
+For more information, including usage guide for the application and model card, please visit the [wiki](https://github.com/zebleck/Brain-Tumour-Analysis/wiki)!
 
 ## Download application
 
