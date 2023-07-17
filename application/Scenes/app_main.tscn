@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://Scripts/HTTPResult.gd" id="5_uuh6c"]
 [ext_resource type="Script" path="res://Scripts/HTTPImageNames.gd" id="6_kuw1r"]
 [ext_resource type="PackedScene" uid="uid://hex8qgen1op7" path="res://Scenes/loading.tscn" id="7_ihfef"]
-[ext_resource type="PackedScene" uid="uid://boqx2hp5bl1kt" path="res://Scenes/Modules/warning.tscn" id="7_ydxn2"]
+[ext_resource type="PackedScene" path="res://Scenes/Modules/warning.tscn" id="7_ydxn2"]
 
 [node name="AppMain" type="Control"]
 layout_mode = 3

@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://boqx2hp5bl1kt"]
+[gd_scene load_steps=7 format=3]
 
-[ext_resource type="Script" path="res://Scenes/Modules/warning.gd" id="1_ncaqh"]
+[ext_resource type="Script" path="res://Scripts/warning.gd" id="1_ncaqh"]
 [ext_resource type="Theme" uid="uid://d28p0ovyf2ub4" path="res://Themes/WhitePanelTheme.tres" id="2_0t3wl"]
 [ext_resource type="FontFile" uid="uid://bmjn52ctjjiaw" path="res://Fonts/Gugi/Gugi-Regular.ttf" id="3_sjnqe"]
 [ext_resource type="Theme" uid="uid://bu250n7etigis" path="res://Themes/start_menu_theme.tres" id="4_t8jlp"]

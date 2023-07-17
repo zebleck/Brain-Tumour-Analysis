@@ -7,7 +7,7 @@
 [ext_resource type="Theme" uid="uid://7a4pco21mtl5" path="res://Themes/slider_theme.tres" id="3_yv3vf"]
 [ext_resource type="PackedScene" uid="uid://bq2023isksiss" path="res://Scenes/Modules/custom_item_list.tscn" id="4_2uump"]
 [ext_resource type="Theme" uid="uid://bx16tdyaxe3d8" path="res://Themes/viewport_theme.tres" id="4_s5c2d"]
-[ext_resource type="PackedScene" uid="uid://b7fr0hv0ffjb8" path="res://Scenes/Modules/info_pop_up.tscn" id="7_g5haj"]
+[ext_resource type="PackedScene" uid="uid://bdckgguold10t" path="res://Scenes/Modules/info_pop_up.tscn" id="7_g5haj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brskg"]
 bg_color = Color(0.584314, 0.592157, 0.576471, 1)

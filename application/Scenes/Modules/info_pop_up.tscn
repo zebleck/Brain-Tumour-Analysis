@@ -1,6 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7fr0hv0ffjb8"]
+[gd_scene load_steps=6 format=3 uid="uid://bdckgguold10t"]
 
-[ext_resource type="Script" path="res://Scenes/Modules/info_pop_up.gd" id="1_ehp1u"]
+[ext_resource type="Script" path="res://Scripts/info_pop_up.gd" id="1_jj3ay"]
 [ext_resource type="Theme" uid="uid://d28p0ovyf2ub4" path="res://Themes/WhitePanelTheme.tres" id="2_1bdnw"]
 [ext_resource type="FontFile" uid="uid://bmjn52ctjjiaw" path="res://Fonts/Gugi/Gugi-Regular.ttf" id="3_6xoyj"]
 [ext_resource type="Theme" uid="uid://bu250n7etigis" path="res://Themes/start_menu_theme.tres" id="4_2pfac"]
@@ -16,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ehp1u")
+script = ExtResource("1_jj3ay")
 
 [node name="CoverPanel" type="Panel" parent="."]
 layout_mode = 1
@@ -84,7 +84,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_6xoyj")
 theme_override_font_sizes/normal_font_size = 20
-text = "Original Info Text blbalbl blab blablbal"
+text = "This is the original image."
 
 [node name="VisualizationInfoText" type="RichTextLabel" parent="Panel/BasicContainer/Control"]
 visible = false
@@ -101,7 +101,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_6xoyj")
 theme_override_font_sizes/normal_font_size = 20
-text = "Visualization Info Text blbalbl blab blablbal"
+text = "Grad-CAM (Gradient-weighted Class Activation Map) is one of the gradient-only methods for saliency maps. It focuses solely on the gradient information from the last convolutional layer and generates a coarse localization map that highlights important regions within the image. These regions can be interpreted as follows: A positive gradient would indicate an increase for the likelihood of the predicted class, while a negative gradient would suggest a decreased probability."
 
 [node name="BatchInfoText" type="RichTextLabel" parent="Panel/BasicContainer/Control"]
 visible = false
@@ -118,7 +118,7 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_6xoyj")
 theme_override_font_sizes/normal_font_size = 20
-text = "Batch Info Text blbalbl blab blablbal"
+text = "See Visualization. Another way of visualization. Same meaning as in Visualization (Grad-Cam)."
 
 [node name="LimeInfoText" type="RichTextLabel" parent="Panel/BasicContainer/Control"]
 visible = false
@@ -135,7 +135,8 @@ grow_vertical = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_6xoyj")
 theme_override_font_sizes/normal_font_size = 20
-text = "Lime Info Text blbalbl blab blablbal"
+text = "LIME (Local Interpretable Model-Agnostic Explanations), is an interpretability method which trains an interpretable local surrogate model to approximate the predictions of the underlying black-box model. The input image is segmented by Simple Linear Iterative Clustering (SLIC) algorithm by Achanta et al. into “Superpixels”. These are then used to create a distribution of perturbed images, where superpixels are covered in black, randomly. The LIME model is trained on the perturbed images and the output of the underlying model. The perturbed images and their probabilities are then fed to a linear regression model, which estimates the contribution of each superpixel to the overall prediction. The resulting heatmap can be interpreted as follows: blue pixels indicate positive contribution/weight to the prediction, red pixels indicate negative. 
+The intensity of the color is proportional to the absolute value of the contribution/weight. The weights are normalized to fall between -1 and 1."
 
 [node name="closeButton" type="Button" parent="Panel/BasicContainer"]
 custom_minimum_size = Vector2(150, 30)
