@@ -90,5 +90,5 @@ func _loadArchive_button_pressed():
 
 func _refreshArchive_button_pressed():
 	_imageNameListArchive.clear()
-	Global.httpResult.getAllArchiveFolderNames()
+	Global.httpImageNames.getAllArchiveFolderNames()
 	pass

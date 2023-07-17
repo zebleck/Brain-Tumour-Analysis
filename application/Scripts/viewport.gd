@@ -72,10 +72,10 @@ func setResult(result : AnalysisResult):
 	_batch = result.batch
 	_lime = result.lime
 	
+	_lime.set_size_override(Vector2i(512,512))
+	
 	_metaLabel.text = result.metaInfo
-	print(result.prediction[0])
 	_predictionLabel.text = result.prediction[0]
-	print(result.prediction)
 	_predictionValue.value = float(result.prediction[1])
 	_scoreLabel.text = "score: " + result.score
 	_scoreValue.value = abs(float(result.score))

@@ -49,7 +49,11 @@ Here's a brief overview of the important files/folders:
 
 ## Wiki
 
-For more information, please visit the [wiki](https://github.com/zebleck/Brain-Tumour-Analysis/wiki)!
+For more information, including usage guide for the application and model card, please visit the [wiki](https://github.com/zebleck/Brain-Tumour-Analysis/wiki)!
+
+## Download application
+
+The executable for the frontend can be downloaded from [here](https://1drv.ms/f/s!Anworwr0CwTdg7EzzZppZPmq00KCtw?e=sp0FT0).
 
 ## Download data
 

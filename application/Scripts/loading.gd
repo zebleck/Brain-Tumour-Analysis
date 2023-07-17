@@ -93,7 +93,7 @@ func _on_state_update(state : String):
 			multiplier = 4
 			_nextIdle = true
 			pass
-		"convert_visualization":
+		"lime":
 			multiplier = 5
 			pass
 		"convert_batch":

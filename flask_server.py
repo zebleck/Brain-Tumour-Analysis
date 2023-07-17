@@ -25,6 +25,7 @@ from os import listdir
 from os.path import isfile, join
 from skimage.segmentation import slic, mark_boundaries
 from lime import lime_image
+from torchvision.transforms import ToTensor, Resize
 
 currentState_server = "idle"  # sry for global
 
@@ -273,7 +274,7 @@ def process_image_with_path(file_name):
     print('GradCAM time: {:.2f} seconds', time.time() - start_time)
 
     start_time = time.time()
-    currentState_server = "convert_lime"
+    currentState_server = "lime"
     lime_img = lime(image)
     print('LIME time: {:.2f} seconds', time.time() - start_time)
 
@@ -294,6 +295,7 @@ def process_image_with_path(file_name):
     byte_stream2.seek(0)
     batch_visualization_stream = base64.b64encode(byte_stream2.read()).decode()
 
+    currentState_server = "convert_lime"
     # Convert the image to a byte stream with the desired colormap
     byte_stream = io.BytesIO()
     cmap = LinearSegmentedColormap.from_list('lime_cmap', ['red', 'white', 'blue'])
@@ -354,6 +356,7 @@ def postprocess_image(image):
 
 
 def custom_print(*args, **kwargs):
+    isPrint = True
     if isPrint:
         print(*args, **kwargs)
 
@@ -432,6 +435,10 @@ import matplotlib.image as mpimg
 
 
 def lime(image):
+
+    #height = image.height
+    #width = image.width
+
     image = image.numpy().transpose(1, 2, 0)
 
     explainer = lime_image.LimeImageExplainer()
@@ -463,6 +470,9 @@ def lime(image):
     for idx, weight in superpixel_weights:
         weighted_mask[segments == idx] = weight
 
+    resized_weighted_mask = ToTensor()(Image.fromarray(weighted_mask)).unsqueeze(0)
+    weighted_mask = Resize((512, 512))(resized_weighted_mask).squeeze().numpy()
+
     return weighted_mask
 
 
@@ -478,6 +488,5 @@ if __name__ == '__main__':
     if not os.path.exists('archive'):
         os.makedirs('archive')
     model = load_model(args.model_path)
-    isPrint = False
 
     app.run()
