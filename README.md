@@ -51,6 +51,10 @@ Here's a brief overview of the important files/folders:
 
 For more information, please visit the [wiki](https://github.com/zebleck/Brain-Tumour-Analysis/wiki)!
 
+## Download application
+
+The executable for the frontend can be downloaded from [here](https://1drv.ms/f/s!Anworwr0CwTdg7EzzZppZPmq00KCtw?e=sp0FT0).
+
 ## Download data
 
 To download and process the data, you need to get an authorization token. To get it, first [request access to the dataset](https://data-proxy.ebrains.eu/datasets/8fc108ab-e2b4-406f-8999-60269dc1f994). Then inspect the network traffic in the browser (F12 for Chrome) and search for the header `Authorization`. You can then insert the token value into the corresponding variable in `Data preprocessing.ipynb`.
