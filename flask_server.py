@@ -222,6 +222,7 @@ def get_archive_with_path(folder):
     # Convert the image to a byte stream with the desired colormap
     byte_stream = io.BytesIO()
     cmap = LinearSegmentedColormap.from_list('lime_cmap', ['red', 'white', 'blue'])
+    plt.clf()
     plt.imshow(lime, cmap=cmap, vmin=-1.0, vmax=1.0)
     plt.axis('off')  # Remove axis
     plt.savefig(byte_stream, format='png', bbox_inches='tight', pad_inches=0)  # Save the image to the byte stream
@@ -299,6 +300,7 @@ def process_image_with_path(file_name):
     # Convert the image to a byte stream with the desired colormap
     byte_stream = io.BytesIO()
     cmap = LinearSegmentedColormap.from_list('lime_cmap', ['red', 'white', 'blue'])
+    plt.clf()
     plt.imshow(lime_img, cmap=cmap, vmin=-1.0, vmax=1.0)
     plt.axis('off')  # Remove axis
     plt.savefig(byte_stream, format='png', bbox_inches='tight', pad_inches=0)  # Save the image to the byte stream
@@ -469,9 +471,6 @@ def lime(image):
     weighted_mask = np.zeros_like(segments, dtype=np.float32)
     for idx, weight in superpixel_weights:
         weighted_mask[segments == idx] = weight
-
-    resized_weighted_mask = ToTensor()(Image.fromarray(weighted_mask)).unsqueeze(0)
-    weighted_mask = Resize((512, 512))(resized_weighted_mask).squeeze().numpy()
 
     return weighted_mask
 
